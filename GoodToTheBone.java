@@ -82,7 +82,7 @@ public class GoodToTheBone extends Exception {
 	        home.setPerson(3, gran);
 	        
 	        mom.setMessage(0, new Message("Good job, I'll reward you with food", -10, 1));
-	        mom.setMessage(1, new Message("No dessert for you", -10, -1));
+	        mom.setMessage(1, new Message("No dessert for you", 5, -1));
 	        dad.setMessage(0, new Message("Good job sport", 0, 1));
 	        dad.setMessage(1, new Message("You're grounded", 0, -1));
 	        dog.setMessage(0, new Message("BORK BORK (Thank you!)", 0, 1));
@@ -98,10 +98,13 @@ public class GoodToTheBone extends Exception {
 		        	String opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(mom.getMessage(0));
-		        		
+		        		hungerTracker += (-10);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(mom.getMessage(1));
+		        		hungerTracker += (-10);
+		        		moraleTracker += (5);
 		        	}
 		        	else {
 		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
@@ -112,9 +115,13 @@ public class GoodToTheBone extends Exception {
 		        	opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(dad.getMessage(0));
+		        		hungerTracker += (0);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(dad.getMessage(1));
+		        		hungerTracker += (0);
+		        		moraleTracker += (-1);
 		        	}
 		        	break;
 		        case "3":
@@ -122,9 +129,13 @@ public class GoodToTheBone extends Exception {
 		        	opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(dog.getMessage(0));
+		        		hungerTracker += (0);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(dog.getMessage(1));
+		        		hungerTracker += (0);
+		        		moraleTracker += (-1);
 		        	}
 		        	break;
 		        case "4":
@@ -132,9 +143,13 @@ public class GoodToTheBone extends Exception {
 		        	opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(gran.getMessage(0));
+		        		hungerTracker += (-10);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(gran.getMessage(1));
+		        		hungerTracker += (50);
+		        		moraleTracker += (-100);
 		        	}
 		        	break;
 		        }
@@ -168,9 +183,13 @@ public class GoodToTheBone extends Exception {
 		        	String opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(classmate.getMessage(0));
+		        		hungerTracker += (0);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(classmate.getMessage(1));
+		        		hungerTracker += (0);
+		        		moraleTracker += (-1);
 		        	}
 		        	else {
 		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
@@ -181,18 +200,26 @@ public class GoodToTheBone extends Exception {
 		        	opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(teacher.getMessage(0));
+		        		hungerTracker += (0);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(teacher.getMessage(1));
+		        		hungerTracker += (0);
+		        		moraleTracker += (-1);
 		        	}
 		        	break;
 		        case "3":
 		        	System.out.println("Let's check your record.");
 		        	if(moraleTracker >= 10) {
 		        		System.out.println(principal.getMessage(0));
+		        		hungerTracker += (0);
+		        		moraleTracker += (2);
 		        	}
 		        	else {
 		        		System.out.println(principal.getMessage(1));
+		        		hungerTracker += (0);
+		        		moraleTracker += (-100);
 		        	}
 		        	break;
 		        }
@@ -226,9 +253,13 @@ public class GoodToTheBone extends Exception {
 	        	String opt = input.next();
 	        	if(opt.equals("1")) {
 	        		System.out.println(lifeguard.getMessage(0));
+	        		hungerTracker += (-10);
+	        		moraleTracker += (2);
 	        	}
 	        	else if(opt.equals("2")) {
 	        		System.out.println(lifeguard.getMessage(1));
+	        		hungerTracker += (0);
+	        		moraleTracker += (-1);
 	        	}
 	        	else {
 	        		throw new IllegalArgumentException("(1) yes or (2) no"); 
@@ -239,9 +270,13 @@ public class GoodToTheBone extends Exception {
 	        	opt = input.next();
 	        	if(opt.equals("1")) {
 	        		System.out.println(crab.getMessage(0));
+	        		hungerTracker += (-10);
+	        		moraleTracker += (-1);
 	        	}
 	        	else if(opt.equals("2")) {
 	        		System.out.println(crab.getMessage(1));
+	        		hungerTracker += (0);
+	        		moraleTracker += (2);
 	        	}
 	        	break;
 	        case "3":
@@ -249,9 +284,13 @@ public class GoodToTheBone extends Exception {
 	        	opt = input.next();
 	        	if(opt.equals("1")) {
 	        		System.out.println(tourist.getMessage(0));
+	        		hungerTracker += (0);
+	        		moraleTracker += (2);
 	        	}
 	        	else if(opt.equals("2")) {
 	        		System.out.println(tourist.getMessage(1));
+	        		hungerTracker += (0);
+	        		moraleTracker += (-1);
 	        	}
 	        	break; 
 	        }
@@ -265,21 +304,17 @@ public class GoodToTheBone extends Exception {
 	        
 	        if(option.equals("1")) { 
 	        Person grocer = new Person(2);
-	        Person customer = new Person(2);
 	        Person police = new Person(2);
 	        
 	        shop.setPerson(0, grocer);
-	        shop.setPerson(1, customer);
-	        shop.setPerson(2, police);
+	        shop.setPerson(1, police);
 	        
 	        grocer.setMessage(0, new Message("Thanks for shopping with us. Enjoy your candy!", -10, 1));
-	        grocer.setMessage(1, new Message("Thief!!", -10, -1));
-	        customer.setMessage(0, new Message("What a kind " + gender + ". Thank you!", 0, 1));
-	        customer.setMessage(1, new Message("*customer grumbles*" + gender + " these days...", 0, -1));
+	        grocer.setMessage(1, new Message("Police: Thief!!", -10, -1));
 	        police.setMessage(0, new Message("Kid, you're coming with me and I'm calling your parents.", 0, -50));
 	        police.setMessage(1, new Message("I'll let you off this time. Don't do this again.", 0, -3));
 	        
-	        System.out.println("You can talk to (1)grocer, (2)customer");
+	        System.out.println("You can talk to (1)grocer");
 	        talkOption = input.next();
 	        switch(talkOption) {
 		        case "1":
@@ -287,37 +322,45 @@ public class GoodToTheBone extends Exception {
 		        	String choice = input.next();
 		        	if(choice.equals("1")) {
 		        		System.out.println(grocer.getMessage(0));
+		        		hungerTracker += (-10);
+		        		moraleTracker += (2);
 		        	}
 		        	else if(choice.equals("2")) {
 		        		System.out.println(grocer.getMessage(1));
+		        		hungerTracker += (-10);
+		        		moraleTracker += (-1);
 		        		if(moraleTracker < 10) {
 		        			System.out.println(police.getMessage(1));
+		        			hungerTracker += (0);
+			        		moraleTracker += (-3);
 		        		}
 		        		else if(moraleTracker >= 10) {
 		        			System.out.println(police.getMessage(0));
+		        			hungerTracker += (0);
+			        		moraleTracker += (-50);
 		        		}
 		        	}
 		        	else {
-		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
-		        	}
-		        	break;
-		        case "2":
-		        	System.out.println("Hey, could you help me find the beans");
-		        	choice = input.next();
-		        	if(choice.equals("1")) {
-		        		System.out.println(customer.getMessage(0));
-		        	}
-		        	else if(choice.equals("2")) {
-		        		System.out.println(customer.getMessage(1));
-		        	}
-		        	else {
-		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
+		        		throw new IllegalArgumentException(""); 
 		        	}
 		        	break;
 		        	}
 	        }
 	        else {
         		throw new IllegalArgumentException("(1) talk");
-	        }        
+	        }
+	        System.out.println("********************************");
+	        System.out.println("Morality :" + moraleTracker);
+	        System.out.println("Hunger :" + hungerTracker);
+	        System.out.println("********************************");
+	        
+	        if (moraleTracker < 2) {
+	        	System.out.println("You have some bad bones. :( BUT you can change that!");
+	        } else if (moraleTracker < 8) {
+	        	System.out.println("Some good bones! You're almost there! :) ");
+	        }else {
+	        	System.out.println("You're good to the bone!! :>");
+	        }
 	}
+	
 }

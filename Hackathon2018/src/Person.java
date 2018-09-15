@@ -1,5 +1,6 @@
 
 public class Person {
+	
 	private Message[] event;
 	
 	public Person(int numOfMessages) {
