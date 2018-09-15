@@ -1,47 +1,16 @@
 {
-  location{
-    "Beach" : {
-      "NPC" : {
-        "Lisa the Life Guard",
-        "Greg the Crab", 
-        "Taco the Tourist",
-        "Mommy",
-        "Daddy",
-        "Fluffy"
-      },
-      "Actions" : {
-        "Clean up litter!",
-        "Collect sea shells!",
-        "Build a sand castle!",
-        "Play fetch with Fluffy"
-      }
-      },
-    "School" : {
-      "NPC" : {
-        "Mr. Reyes",
-        "Principal Jenny",
-        "Jess the BFF"
-      },
-      "Actions" : {
-        "Talk with Jess!",
-        "Listen to Mr. Reyes",
-        "Sleep",
-      }
-      },
-    "Home" : {
-      "NPC" : {
-        "Mommy",
-        "Daddy",
-        "Fluffy"
-      },
-      "Actions" : {
-        "Study the alphabet",
-        "Walk Fluffy!",
-        "Do the dishes",
-        "Clean your room",
-        "Watch TV",
-        "Play Minecraft",
-      }
-    }
-  }
+  "location": [
+    {"Beach" : [
+      {"NPC" : ["Lisa the Life Guard", "Greg the Crab", "Taco the Tourist", "Mommy", "Daddy", "Fluffy"]},
+      {"Actions" : ["Clean up litter!", "Collect sea shells!", "Build a sand castle!", "Play fetch with Fluffy"]}
+    ]},
+    {"School" : [
+      {"NPC" : ["Mr. Reyes", "Principal Jenny", "Jess the BFF"]},
+      {"Actions" : ["Talk with Jess!", "Listen to Mr. Reyes", "Sleep"]}
+    ]},
+    {"Home" : [
+    {"NPC" : ["Mommy", "Daddy", "Fluffy"]},
+    {"Actions" : ["Study the alphabet", "Walk Fluffy!", "Do the dishes", "Clean your room", "Watch TV", "Play Minecraft"]}
+    ]}
+  ]
 }
