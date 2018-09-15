@@ -43,7 +43,6 @@ public class Instructions {
                 System.out.println("Good luck and have fun!");
            
 }
-        
     }
     public static void main (String[] args){
         Instruction();

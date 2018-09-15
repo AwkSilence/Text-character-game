@@ -26,6 +26,4 @@ public class Message {
 	public int getMoraleVal() {
 		return moraleVal;
 	}
-	
-
 }
