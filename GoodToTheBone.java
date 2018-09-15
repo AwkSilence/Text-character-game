@@ -64,10 +64,6 @@ public class GoodToTheBone extends Exception {
 
         System.out.println("Hello, " + name + "!");
         
-        
-        
-        
-        
         //Home
         System.out.println("Location: Home" + "\n***********************************************");
         Location home = new Location(4, "Home");
@@ -94,7 +90,7 @@ public class GoodToTheBone extends Exception {
 	        gran.setMessage(0, new Message("I hope you like it dear", -10, 1));
 	        gran.setMessage(1, new Message("Oh, that's too bad", 50, -100));
 	        
-	        System.out.println("You can talk to (1)mom, (2)dad, (3)grandma, (4)Fluffy the Dog, or (5)leave");
+	        System.out.println("You can talk to (1)mom, (2)dad, (3)Fluffy the Dog, or (4)grandma");
 	        String talkOption = input.next();
 	        switch(talkOption) {
 		        case "1":
@@ -102,6 +98,7 @@ public class GoodToTheBone extends Exception {
 		        	String opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(mom.getMessage(0));
+		        		
 		        	}
 		        	else if(opt.equals("2")) {
 		        		System.out.println(mom.getMessage(1));
@@ -140,21 +137,10 @@ public class GoodToTheBone extends Exception {
 		        		System.out.println(gran.getMessage(1));
 		        	}
 		        	break;
-		        case "5":	
-		        	System.out.println("You have chosen to leave " + home.getLocationName() + ". Where would you like to go?" 
-		        						+ "You can go to (1) School, (2) Beach, (3) Shop, (4) Back home");
-		        	opt = input.next();
-		        	//leave
-		        default: 
-		        	
 		        }
-
+	        System.out.println("It is time to go to school!");
 	        }
-	        else {
-	        	System.out.println("You can go to (1)school, (2)beach, (3)shop, or (4)go back home");
-	        	//show location options
-	        }
-        
+	       
 	        //School
 	        System.out.println("Location: School" + "\n***********************************************");
 	        Location school = new Location(3, "School");
@@ -166,6 +152,52 @@ public class GoodToTheBone extends Exception {
 	        school.setPerson(0, classmate);
 	        school.setPerson(1, teacher);
 	        school.setPerson(2, principal);
+	        
+	        classmate.setMessage(0, new Message("Thank you so much!", 0, 1));
+	        classmate.setMessage(1, new Message("Alright...", 0, -1));
+	        teacher.setMessage(0, new Message("Alright class, lets read page 49.", 0, 1));
+	        teacher.setMessage(1, new Message("You're going to the principles office!", 0, -1));
+	        principal.setMessage(0, new Message("Since it's your first time here, I'll let you off easily.", 0, 1));
+	        principal.setMessage(1, new Message("I'm calling your parents!", 0, -100));
+	        
+	        System.out.println("You can talk to (1)classmate, (2)teacher, (3)principal");
+	        String talkOption = input.next();
+	        switch(talkOption) {
+		        case "1":
+		        	System.out.println("Hello, can I borrow your pencil? (1) yes, (2) no");
+		        	String opt = input.next();
+		        	if(opt.equals("1")) {
+		        		System.out.println(classmate.getMessage(0));
+		        	}
+		        	else if(opt.equals("2")) {
+		        		System.out.println(classmate.getMessage(1));
+		        	}
+		        	else {
+		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
+		        	}
+		        	break;
+		        case "2":
+		        	System.out.println("Sit down and pay attention!! (1) yes, (2) no");
+		        	opt = input.next();
+		        	if(opt.equals("1")) {
+		        		System.out.println(teacher.getMessage(0));
+		        	}
+		        	else if(opt.equals("2")) {
+		        		System.out.println(teacher.getMessage(1));
+		        	}
+		        	break;
+		        case "3":
+		        	System.out.println("Let's check your record.");
+		        	if(moraleTracker >= 10) {
+		        		System.out.println(principal.getMessage(0));
+		        	}
+		        	else {
+		        		System.out.println(principal.getMessage(1));
+		        	}
+		        	break;
+		        }
+	        
+	        System.out.println("Aren't you excited?! We're going to the beach!");
 	        
 	        //Beach
 	        System.out.println("Location: Beach" + "\n***********************************************");
@@ -180,14 +212,14 @@ public class GoodToTheBone extends Exception {
 	        beach.setPerson(2, tourist);
 	        
 	        lifeguard.setMessage(0, new Message("Thank you so much! I'll get you a hot dog.", -10, 1));
-	        lifeguard.setMessage(1, new Message("Oh it's okay, I guess I'll just get sun-burnt.", 10, -1));
-	        crab.setMessage(0, new Message("You picked up the crab and ate him!", -1, -1));
+	        lifeguard.setMessage(1, new Message("Oh it's okay, I guess I'll just get sun-burnt.", 0, -1));
+	        crab.setMessage(0, new Message("You picked up the crab and ate him!", -10, -1));
 	        crab.setMessage(1, new Message("You and the crab waved at each other.", 0, 1));
 	        tourist.setMessage(0, new Message("Wow! The picture looks really nice! Thank you!", 0, 1));
 	        tourist.setMessage(1, new Message("Wow the natives here are so mean...", 0, -1));
 	        
-	        System.out.println("You can talk to (1)lifeguard, (2)crab, (3)tourist, or (5)leave");
-	        String talkOption = input.next();
+	        System.out.println("You can talk to (1)lifeguard, (2)crab, or (3)tourist");
+	        talkOption = input.next();
 	        switch(talkOption) {
 	        case "1":
 	        	System.out.println("Can you help me, " + name + "? I need to put sunscreen on, or else I will get sunburnt" + ", put sunscreen on the lifeguard? (1) yes, (2) no");
@@ -222,18 +254,16 @@ public class GoodToTheBone extends Exception {
 	        		System.out.println(tourist.getMessage(1));
 	        	}
 	        	break; 
-	        case "5":	
-	        	System.out.println("You can go to (1)school, (2)shop, (3)home, or (4)stay at the beach");
-	        	break;
-	        	//show location options
-	        	//leave
-	        default: 
-
-	        //Shop
+	        }
+	        System.out.println("Time to go shopping!");
+	        
+	      //Shop
 	        System.out.println("Location: Shop" + "\n***********************************************");
 	        Location shop = new Location(4, "Shop");
-	        System.out.println("You are currently at " + shop.getLocationName() + ". Press (1) to 'Talk' or press any other button to 'Leave'");
+	        System.out.println("You are currently at " + shop.getLocationName() + ". Press (1) to 'Talk'");
 	        option = input.next();
+	        
+	        if(option.equals("1")) { 
 	        Person grocer = new Person(2);
 	        Person customer = new Person(2);
 	        Person police = new Person(2);
@@ -242,15 +272,52 @@ public class GoodToTheBone extends Exception {
 	        shop.setPerson(1, customer);
 	        shop.setPerson(2, police);
 	        
-	        grocer.setMessage(0, new Message("Good job, I'll reward you with food", -10, 1));
-	        grocer.setMessage(1, new Message("Thief!!1", -10, -1));
-	        customer.setMessage(0, new Message("Good job sport", 0, 1));
-	        customer.setMessage(1, new Message("You're grounded", 0, -1));
-	        police.setMessage(0, new Message("BORK BORK (Thank you!)", 0, 1));
-	        police.setMessage(1, new Message("BORK BORK (I really had to pee)", 0, -1));
+	        grocer.setMessage(0, new Message("Thanks for shopping with us. Enjoy your candy!", -10, 1));
+	        grocer.setMessage(1, new Message("Thief!!", -10, -1));
+	        customer.setMessage(0, new Message("What a kind " + gender + ". Thank you!", 0, 1));
+	        customer.setMessage(1, new Message("*customer grumbles*" + gender + " these days...", 0, -1));
+	        police.setMessage(0, new Message("Kid, you're coming with me and I'm calling your parents.", 0, -50));
+	        police.setMessage(1, new Message("I'll let you off this time. Don't do this again.", 0, -3));
 	        
-	        //Home -> School -> Beach -> Shop -> Home
-	        
-	       }
+	        System.out.println("You can talk to (1)grocer, (2)customer");
+	        talkOption = input.next();
+	        switch(talkOption) {
+		        case "1":
+		        	System.out.println("*You really want candy* (1)buy, (2)steal");
+		        	String choice = input.next();
+		        	if(choice.equals("1")) {
+		        		System.out.println(grocer.getMessage(0));
+		        	}
+		        	else if(choice.equals("2")) {
+		        		System.out.println(grocer.getMessage(1));
+		        		if(moraleTracker < 10) {
+		        			System.out.println(police.getMessage(1));
+		        		}
+		        		else if(moraleTracker >= 10) {
+		        			System.out.println(police.getMessage(0));
+		        		}
+		        	}
+		        	else {
+		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
+		        	}
+		        	break;
+		        case "2":
+		        	System.out.println("Hey, could you help me find the beans");
+		        	choice = input.next();
+		        	if(choice.equals("1")) {
+		        		System.out.println(customer.getMessage(0));
+		        	}
+		        	else if(choice.equals("2")) {
+		        		System.out.println(customer.getMessage(1));
+		        	}
+		        	else {
+		        		throw new IllegalArgumentException("(1) yes or (2) no"); 
+		        	}
+		        	break;
+		        	}
+	        }
+	        else {
+        		throw new IllegalArgumentException("(1) talk");
+	        }        
 	}
 }
