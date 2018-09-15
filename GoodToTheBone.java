@@ -173,6 +173,61 @@ public class GoodToTheBone extends Exception {
 	        beach.setPerson(1, crab);
 	        beach.setPerson(2, tourist);
 	        
+	        lifeguard.setMessage(0, new Message("Thank you so much! I'll get you a hot dog.", -10, 1));
+	        lifeguard.setMessage(1, new Message("Oh it's okay, I guess I'll just get sun-burnt.", 10, -1));
+	        crab.setMessage(0, new Message("You picked up the crab and ate him!", -1, -1));
+	        crab.setMessage(1, new Message("You and the crab waved at each other.", 0, 1));
+	        tourist.setMessage(0, new Message("Wow! The picture looks really nice! Thank you!", 0, 1));
+	        tourist.setMessage(1, new Message("Wow the natives here are so mean...", 0, -1));
+	        
+	        System.out.println("You can talk to (1)lifeguard, (2)crab, (3)tourist, or (5)leave");
+	        String talkOption = input.next();
+	        switch(talkOption) {
+	        case "1":
+	        	System.out.println("Can you help me, " + name + "? I need to put sunscreen on, or else I will get sunburnt" + ", put sunscreen on the lifeguard? (1) yes, (2) no");
+	        	String opt = input.next();
+	        	if(opt.equals("1")) {
+	        		System.out.println(lifeguard.getMessage(0));
+	        	}
+	        	else if(opt.equals("2")) {
+	        		System.out.println(lifeguard.getMessage(1));
+	        	}
+	        	else {
+	        		throw new IllegalArgumentException("(1) yes or (2) no"); 
+	        	}
+	        	break;
+	        case "2":
+	        	System.out.println("You see a small crab in the sand. Do you pick him up? (1) yes, (2) no");
+	        	opt = input.next();
+	        	if(opt.equals("1")) {
+	        		System.out.println(crab.getMessage(0));
+	        	}
+	        	else if(opt.equals("2")) {
+	        		System.out.println(crab.getMessage(1));
+	        	}
+	        	break;
+	        case "3":
+	        	System.out.println("Excuse me " + name + ", can you take a picture of me? (1) yes, (2) no");
+	        	opt = input.next();
+	        	if(opt.equals("1")) {
+	        		System.out.println(tourist.getMessage(0));
+	        	}
+	        	else if(opt.equals("2")) {
+	        		System.out.println(tourist.getMessage(1));
+	        	}
+	        	break; 
+	        case "5":	
+	        	//leave
+	        default: 
+	        	
+	        }
+	        //if(msgCount > x)
+	        //set hunger and morality gain to 0
+        }
+        else {
+        	System.out.println("You can go to (1)school, (2)shop, (3)shop, or (4)go back home");
+        	//show location options
+        }
 	        //Shop
 	        System.out.println("Location: Shop" + "\n***********************************************");
 	        Location shop = new Location(4, "Shop");
