@@ -61,9 +61,9 @@ public class GoodToTheBone extends Exception {
 		 	        	System.out.println("Invalid answer. Please enter a number!");
 		 	        	input.next();
 		 	    }
-
+		    
 	        System.out.println("Hello, " + name + "!");
-	        
+	        System.out.println("Your current status is... " + "\nMorale: " + moraleTracker + "\nHunger: " + hungerTracker);
 	        //Home
 	        System.out.println("Location: Home" + "\n***********************************************");
 	        Location home = new Location(4, "Home");
@@ -87,7 +87,7 @@ public class GoodToTheBone extends Exception {
 		        dad.setMessage(1, new Message("You're grounded", 0, -1));
 		        dog.setMessage(0, new Message("BORK BORK (Thank you!)", 0, 1));
 		        dog.setMessage(1, new Message("BORK BORK (I really had to pee)", 0, -1));
-		        gran.setMessage(0, new Message("I hope you like it dear", -10, 1));
+		        gran.setMessage(0, new Message("I hope you like it dear", -20, 1));
 		        gran.setMessage(1, new Message("Oh, that's too bad", 50, -100));
 		        
 		        System.out.println("You can talk to (1)mom, (2)dad, (3)grandma, (4)Fluffy the Dog, or (5)leave");
@@ -107,7 +107,7 @@ public class GoodToTheBone extends Exception {
 		        	}
 		        	break;
 		        case "2":
-		        	System.out.println("Hello " + name + ", can you do your chores (1) yes, (2) no");
+		        	System.out.println("Hey sport, get your homework done. (1) yes, (2) no");
 		        	opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(dad.getMessage(0));
@@ -117,7 +117,7 @@ public class GoodToTheBone extends Exception {
 		        	}
 		        	break;
 		        case "3":
-		        	System.out.println("Hello " + name + ", can you do your chores (1) yes, (2) no");
+		        	System.out.println("Fluffy wants to go for a walk. Will you walk the dog? (1) yes, (2) no");
 		        	opt = input.next();
 		        	if(opt.equals("1")) {
 		        		System.out.println(dog.getMessage(0));
@@ -137,6 +137,9 @@ public class GoodToTheBone extends Exception {
 		        	}
 		        	break;
 		        case "5":	
+		        	System.out.println("You have chosen to leave " + home.getLocationName() + ". Where would you like to go?"
+		        			+ "You can go to (1) School, (2) Beach, (3) Shop, (4) Back home");
+		        	opt = input.next();
 		        	//leave
 		        default: 
 		        	
@@ -231,7 +234,8 @@ public class GoodToTheBone extends Exception {
 	        //Shop
 	        System.out.println("Location: Shop" + "\n***********************************************");
 	        Location shop = new Location(4, "Shop");
-	        
+	        System.out.println("You are currently at " + shop.getLocationName() + ". Press (1) to 'Talk' or press any other button to 'Leave'");
+	        option = input.next();
 	        Person grocer = new Person(2);
 	        Person customer = new Person(2);
 	        Person police = new Person(2);
@@ -239,6 +243,13 @@ public class GoodToTheBone extends Exception {
 	        shop.setPerson(0, grocer);
 	        shop.setPerson(1, customer);
 	        shop.setPerson(2, police);
+	        
+	        grocer.setMessage(0, new Message("Good job, I'll reward you with food", -10, 1));
+	        grocer.setMessage(1, new Message("Thief!!1", -10, -1));
+	        customer.setMessage(0, new Message("Good job sport", 0, 1));
+	        customer.setMessage(1, new Message("You're grounded", 0, -1));
+	        police.setMessage(0, new Message("BORK BORK (Thank you!)", 0, 1));
+	        police.setMessage(1, new Message("BORK BORK (I really had to pee)", 0, -1));
 	        
 	        //Home -> School -> Beach -> Shop -> Home
 	        
