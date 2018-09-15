@@ -4,6 +4,9 @@ public class Message {
 	private int hungerVal;
 	private int moraleVal;
 	Message(String message, int hungerVal, int moraleVal){
+		this.message = message;
+		this.hungerVal = hungerVal;
+		this.moraleVal = moraleVal;
 	}
 	public void setMessage(String message) {
 		this.message=message;
