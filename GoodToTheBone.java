@@ -14,16 +14,17 @@ public class GoodToTheBone extends Exception {
 	    System.out.println("***********************************************\n"
 	            +          "*****************INSTRUCTIONS******************\n"
 	            +          "***********************************************\n");
-	    System.out.println("The goal of the game is to obtain 0 hunger and 100 morale.\n"
+	    System.out.println("The goal of the game is to be as nice as possible.\n"
 	            +          "The character you create starts with 0-10 morale depending\n"
 	            +          "on your choice at character creation, and with 50 hunger.\n"
 	            +          "There are several ways to obtain morale and lower hunger but mostly\n"
 	            +          "helping npcs or completing actions that are required of your character.\n"
 	            +          "When visiting the shop you can purchase food or steal it. \n"
-	            +          "The good meter in this game will track your actions. Your\n"
-	            +		   "bad. Tip: (Never say no to grandma and avoid seeing principal\n"
-	            +          "if below 50 morale.)If your good meter hits 0, you lose aswell as\n"
-	            +          "if your hunger meter hits 100. So, watch your actions\n"
+	            +          "The good meter in this game will track your actions. \n"
+	            +		   "Tip: (Never say no to grandma, avoid seeing principal if\n"
+	            +          "below 6 morale and never steal.) Other than those exceptions, good deeds\n"
+	            +          "give you +2 morale while bad deeds will subtract 1.\n"
+	            +          "At the end of the game, your morale and hunger will be shown.\n"
 	            +          "This is all for now. Have fun in our game!!\n");
 	    		break;
 	    	case "no":
@@ -211,7 +212,7 @@ public class GoodToTheBone extends Exception {
 		        	break;
 		        case "3":
 		        	System.out.println("Let's check your record.");
-		        	if(moraleTracker >= 10) {
+		        	if(moraleTracker >= 6) {
 		        		System.out.println(principal.getMessage(0));
 		        		hungerTracker += (0);
 		        		moraleTracker += (2);
@@ -353,6 +354,12 @@ public class GoodToTheBone extends Exception {
 	        System.out.println("Morality :" + moraleTracker);
 	        System.out.println("Hunger :" + hungerTracker);
 	        System.out.println("********************************");
+	        if (hungerTracker > 50) {
+	        	System.out.println("You need to eat for more nutrition!");
+	        } else {
+	        	System.out.println("Good job on keeping yourself well fed! :) ");
+	        }
+	
 	        
 	        if (moraleTracker < 2) {
 	        	System.out.println("You have some bad bones. :( BUT you can change that!");
@@ -360,7 +367,6 @@ public class GoodToTheBone extends Exception {
 	        	System.out.println("Some good bones! You're almost there! :) ");
 	        }else {
 	        	System.out.println("You're good to the bone!! :>");
-	        }
-	}
+	        }}}
+	       
 	
-}
